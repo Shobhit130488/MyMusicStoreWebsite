@@ -308,6 +308,10 @@
       <Project>{573b9d82-c475-44e3-9672-53c9bd9bc726}</Project>
       <Name>MusicStore.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MusicStore.Data\MusicStore.Data.csproj">
+      <Project>{816f4fd6-aa0f-4439-8904-1aa4e30d966d}</Project>
+      <Name>MusicStore.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MusicStore.Infrastructure\MusicStore.Infrastructure.csproj">
       <Project>{5bd28858-237e-4eee-aab8-1d762087b6f6}</Project>
       <Name>MusicStore.Infrastructure</Name>
