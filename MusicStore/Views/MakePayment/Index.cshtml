@@ -1,0 +1,159 @@
+﻿@model MusicStore.Core.Models.CustomerDetails
+@using MusicStore.CustomHtmlHelper
+@{
+    ViewBag.Title = "Payment";
+
+
+}
+@if (ViewBag.Data != null)
+{
+
+    <div class="paymentNote">@ViewBag.Data</div>
+}
+
+@using (Html.BeginForm("pay", "MakePayment", FormMethod.Post))
+
+{
+
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-offset-3 col-md-5 well well-lg" id="creditcardform">
+
+                <form action="/Booking/Index" method="post">
+                    <div class="row formHeading">
+                        <div class="col-md-offset-3 col-md-8">
+                            <h2>Enter Details</h2>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row form-group ">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            @Html.CustomInput(model => model.FirstName, new { @class = "form-control", placeholder = "Enter First Name", required = "required" })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+                    <div class="row form-group ">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            @Html.CustomInput(model => model.LastName, new { @class = "form-control", placeholder = "Enter Last Name", required = "required" })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </div>
+                            @Html.CustomInput(model => model.EmailId, new { @class = "form-control", placeholder = "Email Id", required = "required" })
+                            @Html.ValidationMessageFor(model => model.EmailId, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <span class="fa fa-map-marker"></span>
+                            </div>
+
+                            @Html.CustomInput(model => model.Address, new { @class = "form-control", placeholder = "Address", required = "required" })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @style = "color:red" })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <span class="fa fa-map-o"></span>
+                            </div>
+
+                            @Html.CustomInput(model => model.State, new { @class = "form-control", placeholder = "State", required = "required" })
+                            @Html.ValidationMessageFor(model => model.State, "", new { @style = "color:red" })
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-phone"></span>
+                            </div>
+
+                            @Html.CustomInput(model => model.PhoneNo, new { @class = "form-control", placeholder = "Phone Number", required = "required" })
+                            @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @style = "color:red" })
+
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-address-card"></i>
+                            </div>
+
+                            @Html.CustomInput(model => model.CardNo, new { @class = "form-control", placeholder = "Card Number", required = "required" })
+                            @Html.ValidationMessageFor(model => model.CardNo, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-credit-card"></span>
+                            </div>
+
+                            @Html.CustomInput(model => model.CardCCVNo, new { @class = "form-control", placeholder = "CVV", required = "required" })
+                            @Html.ValidationMessageFor(model => model.CardCCVNo, "", new { @style = "color:red" })
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                            
+                                @Html.CustomInput(model => model.CardExpiryMonth, new { @class = "form-control", placeholder = "Month", required = "required" })
+                                @Html.ValidationMessageFor(model => model.CardExpiryMonth, "", new { @style = "color:red" })
+                            <div>
+                                @Html.CustomInput(model => model.CardExpiryYear, new { @class = "form-control", placeholder = "Year", required = "required" })
+                                @Html.ValidationMessageFor(model => model.CardExpiryYear, "", new { @style = "color:red" })
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-offset-2 col-md-6 input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-inr"></i>
+                            </div>
+
+                            @Html.CustomInput(model => model.payableAmount, new { @class = "form-control", @readonly = "readonly" })
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-offset-4" id="pay-now">
+                            <button type="submit" class="btn btn-primary" id="confirm">Submit</button>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+}
+
+

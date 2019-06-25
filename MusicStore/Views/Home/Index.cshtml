@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MusicStore.Core.Models.DataContentsModel>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+
+<div class="row">
+    <div class="col-md-12 pageheading">
+        <h1>Gala</h1>
+        <h5><i>Songs for all moods!!!</i></h5>
+
+    </div>
+</div>
+
+@foreach (var dataset in Model)
+{
+
+    <div class="card" >
+        <div class="row card-block well">
+            <div class="col-md-2">
+                <img src="@dataset.ImageUrl" />
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        Song:<b> @Html.DisplayFor(modelItem => dataset.Title)</b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        Artist: <b>@Html.DisplayFor(modelItem => dataset.Artist)</b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        Duration:<b> @Html.DisplayFor(modelItem => dataset.Duration)</b>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        Genre:<b> @Html.DisplayFor(modelItem => dataset.Genre)</b>
+                    </div>
+                </div>
+                <div class="row price">
+                    <div class="col-md-6">
+                        Price:<b>$ @Html.DisplayFor(modelItem => dataset.Price)</b>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-offset-2  col-md-2 addtocart">
+                <button type="button"  onclick='addToCart(@Html.Raw(Json.Encode(dataset)))' class="btn btn-primary"  >
+                    Add to Cart
+                   
+                </button>
+                   
+            </div>
+        </div>
+    </div>
+}

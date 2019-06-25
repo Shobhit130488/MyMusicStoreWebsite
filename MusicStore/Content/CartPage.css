@@ -1,0 +1,15 @@
+﻿.removeButton{
+    margin-top:60%;
+}
+.cartHeader{
+background: linear-gradient(to top right, #33cccc 43%, #009933 100%);
+
+    color: white;
+   border-radius: .28571429rem;
+   padding-bottom:2%;
+   padding-top:2%;
+   text-align:center;
+   margin-bottom:1%;
+   width:98%;
+  margin-left:1.3%;
+}

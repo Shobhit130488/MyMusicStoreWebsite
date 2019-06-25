@@ -1,0 +1,12 @@
+﻿.formHeading{   
+    color: black;
+}
+#creditcardform{
+    margin-top:2%;
+    background:linear-gradient(to top left, #ccffff 28%, #ffffff 100%);
+}
+.paymentNote{
+    text-align:center;
+    color:red;
+    font-family:Arial, Helvetica, sans-serif;
+}

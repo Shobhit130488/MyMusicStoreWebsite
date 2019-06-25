@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MusicStore.Core.Models.DataContentsModel>
+
+@{
+    decimal price = 0;
+}
+@{if (Model.Any())
+    {
+
+        foreach (var data in Model)
+        {
+
+            <div class="card">
+                <div class="row card-block well">
+                    <div class="col-md-2">
+                        <img src="@data.ImageUrl" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                Song:<b> @Html.DisplayFor(modelItem => data.Title)</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Artist: <b>@Html.DisplayFor(modelItem => data.Artist)</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Duration:<b> @Html.DisplayFor(modelItem => data.Duration)</b>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                Genre:<b> @Html.DisplayFor(modelItem => data.Genre)</b>
+                            </div>
+                        </div>
+                        <div class="row price">
+                            <div class="col-md-6">
+                                Price:<b>$ @Html.DisplayFor(modelItem => data.Price)</b>
+                                @{
+                                    price = price + data.Price;
+                                    TempData["TotalPrice"] = price;
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-offset-2 col-md-2">
+                        <button type="button" class="btn btn-danger btn-sm removeButton" onclick="removeFromCart(@data.Id)">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+                                        }
+                                    }
+
+                                    else if (Model == null)
+                                    {
+                                        <p>Contents cannot be displayed. Please try again later.</p>
+                                    }
+                                    else
+                                    {
+                                        <h2>Cart is empty</h2>
+                                    }
+}
