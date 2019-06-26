@@ -30,7 +30,7 @@ namespace MusicStore.Controllers
             string filePath = Path.GetFullPath(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory).ToString() 
                                                 +Constants.Constants.cartUrl);
             List<DataContentsModel> listofselecteddata = _dbCall.GetAllData(filePath);
-
+     
             return PartialView("_cartlist", listofselecteddata);
         }
         

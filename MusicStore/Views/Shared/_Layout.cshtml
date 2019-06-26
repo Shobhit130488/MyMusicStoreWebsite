@@ -7,7 +7,6 @@
         @Styles.Render("~/Content/css")
 
 
-    
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/HomePage.js"></script>
     <script src="~/Scripts/CartPage.js"></script>  
@@ -32,7 +31,7 @@
      <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 
-                    @Html.ActionLink("Choose Songs", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("All Your Songs", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Cart", "Index", "Cart", new { area = "" }, new { @class = "navbar-brand" })
                 
         </div>

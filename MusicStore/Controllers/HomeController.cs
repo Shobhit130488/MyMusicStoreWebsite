@@ -21,7 +21,7 @@ namespace MusicStore.Controllers
 
         public ActionResult Index()
         {
-
+           
             string filePath = Path.GetFullPath(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory).ToString() 
                                                 + Constants.Constants.dataUrl);
             List<DataContentsModel> data = _dbCall.GetAllData(filePath);

@@ -317,7 +317,7 @@
       <Name>MusicStore.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Payment\Payment.csproj">
-      <Project>{B08DB79A-881A-4FF6-B9EF-5E9B9B9D6D1B}</Project>
+      <Project>{b08db79a-881a-4ff6-b9ef-5e9b9b9d6d1b}</Project>
       <Name>Payment</Name>
     </ProjectReference>
   </ItemGroup>
